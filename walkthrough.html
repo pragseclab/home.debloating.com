@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>< is > : Walkthrough</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="vendor/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/highlightjs/styles/default.css">
+  <link rel="stylesheet" href="vendor/ekko-lightbox/ekko-lightbox.css">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="./" data-toggle="tooltip" data-placement="bottom" title="Less is More">< is ></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#templates">Templates
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#administration">Administration Panel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#add_new_software">Adding Software</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#map_cves">Mapping CVEs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dynamic_analysis">Dynamic Analysis</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5 logo" data-toggle="tooltip" data-placement="top" title="Less is More">< is ></h1>
+        <p class="lead">Walkthrough</p>
+      </div>
+    </div>
+
+    <!-- Templates -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="templates"></a>
+        <h4 class="mt-1"><i class="fas fa-cubes"></i> Templates</h4>
+        <p>
+          Configured containers for studied web applications are available for download. After downloading the <a href="https://debloating.com/#sourcecode">desired compressed package</a>, and running docker-compose up you can access the web applications on port 8085.
+          <br />
+          By default, the original versions of applications are loaded. The credentials used to login to these instances are available in CREDENTIALS.txt file in each compressed package.
+        </p>
+        <p>
+          To test the debloating process, you can either debloat the applications yourself (described below) or you can test the currently debloated versions. To do that, SSH into the "web" container (you can use ssh_web.sh script available in root directory of the project), navigate to /var/www/html/ and move the files from file_debloating or function_debloating directories to the parent directory. You can make sure the permissions are correct by issuing chown -R www-data:www-data * in /var/www/html/.
+        </p>
+      </div>
+    </div>
+
+    <!-- Administration -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="administration"></a>
+        <h4 class="mt-1"><i class="fas fa-user-cog"></i> Administration Panel</h4>
+        <p>This panel is accessible at http://localhost:8086/admin. Within this panel you can perform tasks such as:</p>
+        <ul>
+          <li>
+            Add new software and prepare it for debloating
+          </li>
+          <li>
+            View coverage of application usage profiles and covered vulnerabilities
+          </li>
+          <li>
+            Perform file and function level debloating
+          </li>
+          <li>
+            Map CVEs to files, functions and lines of web applications
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Adding New Software -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="add_new_software"></a>
+        <h4 class="mt-1"><i class="far fa-window-maximize"></i> Adding a new software</h4>
+        <p>
+          You can host and debloat multiple versions of different web applications at the same time. As such, "WEB APPLICATIONS" subsection will allow you to add different versions of web applications.
+        </p>
+          <b>1.  Adding a new software:</b> First, create an entry for your target application.
+          <div class="row">
+              <div class="col-lg-2"></div><div class="col-lg-8">
+              <a href="images/add_software.png" data-toggle="lightbox" data-title="Adding a new software">
+                <img class="img-fluid img-thumbnail rounded" src="images/add_software.png" />
+              </a>
+              </div>
+          </div>
+          <br />
+          <b>2. Adding a new software version:</b> Add an entry for the version of each software you wish to debloat.
+          <div class="row">
+            <div class="col-lg-2"></div><div class="col-lg-8">
+              <a href="images/add_software_version.png" data-toggle="lightbox" data-title="Adding a new software version">
+                <img class="img-fluid img-thumbnail rounded" src="images/add_software_version.png" />
+              </a>
+            </div>
+        </div>
+        <b>3. Preparing web application for debloating: </b>Under "Debloating", add the directory of your target application.
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/add_webapp_files.png" data-toggle="lightbox" data-title="Preparing web application for debloating">
+              <img class="img-fluid img-thumbnail rounded" src="images/add_webapp_files.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>4. Preparing software for debloating: </b>By clicking on rewrite destructors, the application will be prepared for debloating. This step make sure the debloating engine records the correct code coverage for all destructors within the application. This action needs to be done only once and will rewrite destructors to match our scheme.
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/debloating_applications.png" data-toggle="lightbox" data-title="Performing file and function level debloating">
+              <img class="img-fluid img-thumbnail rounded" src="images/debloating_applications.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>5. Rewrite Destructors output</b>
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/destructors_rewrite.png" data-toggle="lightbox" data-title="Rewriting destructors">
+              <img class="img-fluid img-thumbnail rounded" src="images/destructors_rewrite.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        At this point your application is prepared and you can start recording code coverage by running various tests. Make sure you <a href="./index.html#cookies">setup required cookies or environment variables via .htaccess file</a> to map your requests to test categories within the database.
+      </div>
+    </div>
+
+    <!-- Dynamic Analysis -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="dynamic_analysis"></a>
+        <h4 class="mt-1"><i class="fas fa-chart-bar"></i> Dynamic Analysis</h4>
+        <p>This section presents the reports on which vulnerable files, functions or lines within each application was executed during selected tests. Additionally we can debloat target web applications at the file or function level.</p>
+        <b>- Reports</b>
+        <br />
+        You can select multiple test categories and use the buttons over the top to aggregate the coverage of tests. You can also export the report as CSV.
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/reports.png" data-toggle="lightbox" data-title="Reports">
+              <img class="img-fluid img-thumbnail rounded" src="images/reports.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>- Covered vulnerable files</b>
+        <br />
+        This view lists vulnerable files for target web application and marks the ones that were executed during our tests. In this example, file level debloating can remove the vulnerable files that were not executed and as a result, remove those CVEs.
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/covered_vulnerable_files.png" data-toggle="lightbox" data-title="Covered vulnerable files">
+              <img class="img-fluid img-thumbnail rounded" src="images/covered_vulnerable_files.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>- Performing file and function level debloating</b>
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/debloating_applications.png" data-toggle="lightbox" data-title="Performing file and function level debloating">
+              <img class="img-fluid img-thumbnail rounded" src="images/debloating_applications.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>- Debloating results</b>
+        <br />
+        After clicking on file or function debloating, you will see the list of removed files and functions.
+        <br />
+        <b>- File debloating logs</b>
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/file_debloating_report.png" data-toggle="lightbox" data-title="File debloating logs">
+              <img class="img-fluid img-thumbnail rounded" src="images/file_debloating_report.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <b>- Function debloating logs</b>
+        <div class="row">
+          <div class="col-lg-2"></div><div class="col-lg-8">
+            <a href="images/function_debloating_report.png" data-toggle="lightbox" data-title="Function debloating logs">
+              <img class="img-fluid img-thumbnail rounded" src="images/function_debloating_report.png" />
+            </a>
+          </div>
+        </div>
+        <br />
+        <p>At this point, the target application has been debloated. This can be tested by using the application normally and then navigating to one of the files or functions that has been removed to trigger an error.</p>
+      </div>
+    </div>
+
+    <!-- Mapping CVEs -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="map_cves"></a>
+        <h4 class="mt-1"><i class="fas fa-flag"></i> Mapping CVEs</h4>
+          <p>By following the steps below, under "VULNERABILITIES" subsection, we can add new CVEs and mark vulnerable files, functions and lines in our target applications.</p>
+          <b>- Adding a new CVE</b>
+          <div class="row">
+              <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/add_cve.png" data-toggle="lightbox" data-title="Adding a new CVE">
+                  <img class="img-fluid img-thumbnail rounded" src="images/add_cve.png" />
+                </a>
+              </div>
+          </div>
+          <br />
+          <b>- Mapping CVE to vulnerable files</b>
+          <div class="row">
+              <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/add_vulnerable_file.png" data-toggle="lightbox" data-title="Mapping CVE to vulnerable files">
+                  <img class="img-fluid img-thumbnail rounded" src="images/add_vulnerable_file.png" />
+                </a>
+              </div>
+          </div>
+          <br />
+          <b>- Mapping CVE to vulnerable functions</b> (Line number points to the first statement within the function)
+          <div class="row">
+              <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/add_vulnerable_function.png" data-toggle="lightbox" data-title="Mapping CVE to vulnerable functions">
+                  <img class="img-fluid img-thumbnail rounded" src="images/add_vulnerable_function.png" />
+                </a>
+              </div>
+          </div>
+          <br />
+          <b>- Mapping CVE to vulnerable lines</b>
+          <div class="row">
+              <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/add_vulnerable_line.png" data-toggle="lightbox" data-title="Mapping CVE to vulnerable lines">
+                  <img class="img-fluid img-thumbnail rounded" src="images/add_vulnerable_line.png" />
+                </a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <!-- Sample Exploit -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <hr />
+      </div>
+      <div class="col-lg-12">
+        <a class="anchor" name="exploit"></a>
+        <h4 class="mt-1"><i class="fas fa-bomb"></i> Breaking RCE exploit on Mangento 2.0.5 (CVE-2016-4010)</h4>
+        <p>
+          To demonstrate how an exploit attempt can fail after debloating, you can test CVE-2016-4010. This exploit targets an unsafe deserialization on shopping cart information in guest checkout. The gadget chain starts with Credis_Client class which is the redis client used in Magento and this module is not enabled or used by default. This is a common theme for most classes used in PHP Object Injection gadgets, they are from classes that are not used. And as this is the case for this class, both file and function level debloating will successfully remove this class and exploit attempt will fail.
+        </p>
+        Follow these steps to reproduce this scenario:
+        <ol>
+          <li>
+              Get the exploit from <a href="https://www.exploit-db.com/exploits/39838">https://www.exploit-db.com/exploits/39838</a>.
+          </li>
+          <li>
+              Follow the steps and exploit the original version of Magento 2.0.5.
+              <br />
+              In this example our exploit runs php_info() on the remote server.
+              <br />
+              <div class="row">
+                <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/magento_exploit_success.png" data-toggle="lightbox" data-title="Exploit succeeds on original version">
+                  <img class="img-fluid img-thumbnail rounded" src="images/magento_exploit_success.png" />
+                </a>
+                </div>
+              </div>
+          </li>
+          <li>
+              Copy file or function debloated version of Magento 2.0.5 to apache root (or debloat it yourself from the debloating panel) and try the exploit again.
+              <br />
+              The class that initiates the gadget chain is removed during debloating and this makes the exploit fail.
+              <br />
+              <div class="row">
+                <div class="col-lg-2"></div><div class="col-lg-8">
+                <a href="images/magento_exploit_failed.png" data-toggle="lightbox" data-title="Exploit fails on debloated version">
+                  <img class="img-fluid img-thumbnail rounded" src="images/magento_exploit_failed.png" />
+                </a>
+                </div>
+              </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/highlightjs/highlight.pack.js"></script>
+  <script src="vendor/ekko-lightbox/ekko-lightbox.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        hljs.initHighlightingOnLoad();
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+  </script>
+
+</body>
+
+</html>
