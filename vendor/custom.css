@@ -76,3 +76,11 @@ ul.dashed > li:before {
 .funding-info .grant-number {
   font-weight: 400;
 }
+
+.institutionlogo {
+  width: 150px;
+}
+
+.institutionlogocontainer {
+  text-align: center;
+}
