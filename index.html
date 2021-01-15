@@ -38,13 +38,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://debloating.com">Less is More</a>
+            <a class="nav-link" target="_blank" href="https://lessismore.debloating.com">Less is More</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://saphire.debloating.com">Saphire</a>
+            <a class="nav-link" target="_blank" href="https://saphire.debloating.com">Saphire</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mininode</a>
+            <a class="nav-link" target="_blank" href="https://kapravelos.com/projects/mininode">Mininode</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://megele.io/asiaccs20-sqlblock.pdf">SQLBlock</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#team">Team</a>
@@ -75,11 +78,19 @@
       <div class="col-lg-12">
         <a class="anchor" name="introduction"></a>
         <h4 class="mt-1"><i class="fas fa-quote-left"></i> What is software debloating?</h1>
-          <p>The main idea of software debloating is to reduce software's attack surface by removing pieces of code that
+          <p>
+            The main idea of software debloating is to reduce software's attack surface by removing pieces of code that
             are not required by users. Debloating can target various parts of the software stack. For instance, "Less is
             More" reduces the attack surface of web applications by removing the PHP code that is not required, and as a
             result, removing the potential vulnerabilities in those sections of the code. Orthogonally, "Saphire" makes
-            it harder to mount exploits by disabling unnecessary system calls for web applications.</p>
+            it harder to mount exploits by disabling unnecessary system calls for web applications.
+          </p>
+          <p>
+            "Mininode" is a tool, which helps to reduce the attack surface of the Node.js applications by removing the unused modules and functions within the modules. 
+            Finally, "SQLBlock" limits each PHP function for accessing the database. It essentially reduces the attack surface of the
+            vulnerable PHP functions in a web application to a set of query
+            descriptors that demonstrate the benign functionality of the PHP
+            function.
           </p>
       </div>
     </div>
@@ -93,7 +104,7 @@
         <a class="anchor" name="projects"></a>
         <h4 class="mt-1"><i class="fas fa-terminal"></i> Debloating projects</h1>
           <ul>
-            <li><b>Less is More:</b> <a href="https://debloating.com">Project page</a>
+            <li><b>Less is More:</b> <a href="https://lessismore.debloating.com">Project page</a>
             <p>
               <span>Quick links: </span><a href="https://www.securitee.org/files/debloating_usec2019.pdf">[Publication]</a> <a href="https://github.com/silverfoxy/PHPDebloating">[Source code]</a>
             </p>
